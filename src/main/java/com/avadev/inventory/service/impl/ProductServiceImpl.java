@@ -3,6 +3,7 @@ package com.avadev.inventory.service.impl;
 import com.avadev.inventory.dto.request.ProductRequest;
 import com.avadev.inventory.dto.response.ProductResponse;
 import com.avadev.inventory.entity.Product;
+import com.avadev.inventory.exception.ResourceNotFoundException;
 import com.avadev.inventory.mapper.ProductMapper;
 import com.avadev.inventory.repository.ProductRepository;
 import com.avadev.inventory.service.ProductService;
@@ -36,8 +37,7 @@ public class ProductServiceImpl implements ProductService {
 
     private Product findProductOrThrow(Long id) {
         return repository.findById(id)
-                .orElseThrow(() ->
-                        new RuntimeException("Product not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
 
     }
     @Override
