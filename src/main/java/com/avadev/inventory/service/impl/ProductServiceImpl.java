@@ -35,7 +35,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     private Product findProductOrThrow(Long id) {
-
         return repository.findById(id)
                 .orElseThrow(() ->
                         new RuntimeException("Product not found"));
