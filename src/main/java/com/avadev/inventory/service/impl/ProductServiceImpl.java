@@ -9,6 +9,10 @@ import com.avadev.inventory.repository.ProductRepository;
 import com.avadev.inventory.service.ProductService;
 import org.springframework.stereotype.Service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
 import java.util.List;
 
 @Service
@@ -28,12 +32,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductResponse> findAll() {
-        return repository.findAll()
-                .stream()
-                .map(mapper::toResponse)
-                .toList();
+    public Page<ProductResponse> findAll(Pageable pageable) {
+        return repository.findAll(pageable)
+                .map(mapper::toResponse);
     }
+
 
     private Product findProductOrThrow(Long id) {
         return repository.findById(id)
@@ -63,6 +66,14 @@ public class ProductServiceImpl implements ProductService {
         return mapper.toResponse(updated);
     }
 
+    @Override
+    public List<ProductResponse> searchByName(String name){
+
+        return repository.findByNameContainingIgnoreCase(name)
+                .stream()
+                .map(mapper::toResponse)
+                .toList();
+    }
     @Override
     public void delete(Long id) {
         Product product = findProductOrThrow(id);
