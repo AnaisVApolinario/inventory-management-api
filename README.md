@@ -81,10 +81,17 @@ Database credentials are managed through environment variables and are not commi
 
 ### ⏳ Sprint 3 — Testing
 
-Next milestone:
+- Unit testing with JUnit 5
+- Service isolation with Mockito
+- Controller testing with MockMvc
+- Success and error scenarios
+- Validation tests
+- Code coverage with JaCoCo
 
-- JUnit 5
-- Mockito
-- Unit testing
-- Service tests
-- Controller tests
+
+### ⏳ Sprint 4 — Security
+
+- Spring Security
+- JWT authentication
+- User authentication
+- Role-based authorization
