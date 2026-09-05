@@ -7,11 +7,14 @@ Backend REST API developed with Spring Boot.
 - Java 21
 - Spring Boot 4.1.0
 - Spring Data JPA
+- Spring Security
+- JWT
 - PostgreSQL
-- Maven
-- Docker & Docker Compose
+- Docker
+- JUnit 5
+- Mockito
 - Swagger / OpenAPI
-- Bean Validation
+- Maven
 
 ## 📖 API Documentation
 
@@ -79,7 +82,7 @@ Database credentials are managed through environment variables and are not commi
 - Product search
 - Swagger documentation
 
-### ⏳ Sprint 3 — Testing
+### ✅ Sprint 3 — Testing
 
 - Unit testing with JUnit 5
 - Service isolation with Mockito
@@ -89,9 +92,27 @@ Database credentials are managed through environment variables and are not commi
 - Code coverage with JaCoCo
 
 
-### ⏳ Sprint 4 — Security
+### ✅ Sprint 4 — Security
 
-- Spring Security
+- User registration
+- BCrypt password hashing
+- Authentication with Spring Security
+- JWT generation and validation
+- Stateless authentication
+- JWT authentication filter
+- Role-based authorization (ADMIN / USER)
+- Swagger JWT authentication
+
+## Features
+
+- Product CRUD
+- Pagination
+- Request validation
+- Global exception handling
+- User registration and authentication
 - JWT authentication
-- User authentication
-- Role-based authorization
+- Role-based access control
+- API documentation with Swagger
+- Unit and controller tests
+- PostgreSQL database
+- Dockerized development environment

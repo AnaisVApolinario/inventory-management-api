@@ -1,16 +1,17 @@
 package com.avadev.inventory.controller;
-
+import com.avadev.inventory.security.JwtService;
 import com.avadev.inventory.dto.request.ProductRequest;
 import com.avadev.inventory.dto.response.ProductResponse;
 import com.avadev.inventory.exception.ResourceNotFoundException;
 import com.avadev.inventory.service.ProductService;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import tools.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
-
+import com.avadev.inventory.security.CustomUserDetailsService;
 import java.math.BigDecimal;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -25,13 +26,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.springframework.http.MediaType;
 
 @WebMvcTest(ProductController.class)
+@AutoConfigureMockMvc(addFilters = false)
 class ProductControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
+    @MockitoBean
+    private JwtService jwtService;
 
     @MockitoBean
     private ProductService service;
+    @MockitoBean
+    private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
     private ObjectMapper objectMapper;
