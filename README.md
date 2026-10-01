@@ -1,5 +1,5 @@
 # Inventory Management API
-
+![CI](https://github.com/AnaisVApolinario/inventory-management-api/actions/workflows/ci.yml/badge.svg)
 Backend REST API developed with Spring Boot.
 
 ## Technologies
@@ -103,6 +103,19 @@ Database credentials are managed through environment variables and are not commi
 - Role-based authorization (ADMIN / USER)
 - Swagger JWT authentication
 
+
+### ✅ Sprint 5 — CI/CD
+- GitHub Actions setup
+- CI pipeline creation
+- Java 21 and Maven configuration
+- Test variables configuration
+- Automated test execution
+- Pipeline validation on GitHub
+- CI badge in README
+
+
+### ✅ Sprint 6 — Docker + Deployment
+
 ## Features
 
 - Product CRUD
@@ -116,3 +129,15 @@ Database credentials are managed through environment variables and are not commi
 - Unit and controller tests
 - PostgreSQL database
 - Dockerized development environment
+
+## CI/CD
+
+This project uses GitHub Actions for Continuous Integration.
+
+On every push or pull request to `main`, the pipeline:
+
+- Sets up Java 21
+- Restores Maven dependencies
+- Compiles the project
+- Runs automated tests
+- Validates the application build
